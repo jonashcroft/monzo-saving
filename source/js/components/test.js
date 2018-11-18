@@ -1,4 +1,5 @@
 import config from './../helpers/config'
+import formatCurrency from './../helpers/currency'
 
 class ClassName {
     constructor (theme, elem) {
@@ -9,6 +10,8 @@ class ClassName {
         console.log('Main should be ready!')
         console.dir(this._elem)
         console.dir(config)
+
+        console.log( formatCurrency(10000) )
     }
 }
 
