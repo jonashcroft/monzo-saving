@@ -1,5 +1,4 @@
 // import './js/more.js';
-// import 'more.js'
 
 import ClassName from './test.js'
 
