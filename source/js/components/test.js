@@ -1,3 +1,5 @@
+import config from './../helpers/config'
+
 class ClassName {
     constructor (theme, elem) {
         this._elem = elem
@@ -6,6 +8,8 @@ class ClassName {
     onInit () {
         console.log('Main should be ready!')
         console.dir(this._elem)
+
+        console.dir(config)
     }
 }
 
