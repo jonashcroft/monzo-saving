@@ -1,6 +1,4 @@
-// import './js/more.js';
-
-import ClassName from './test.js'
+import ClassName from './components/test.js'
 
 const components = {
     'testing': ClassName
