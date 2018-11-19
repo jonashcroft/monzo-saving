@@ -2,7 +2,7 @@ import config from './../helpers/config'
 import formatCurrency from './../helpers/currency'
 
 class ClassName {
-    constructor (theme, elem) {
+    constructor (elem) {
         this._elem = elem
     }
 

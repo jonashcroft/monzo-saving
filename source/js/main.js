@@ -1,7 +1,9 @@
-import ClassName from './components/test.js'
+import Authorise from './auth/authorise'
+import Timer from './components/timer';
 
 const components = {
-    'testing': ClassName
+    'authorise': Authorise,
+    'timer': Timer
 }
 
 class App {
@@ -9,24 +11,21 @@ class App {
         this._components = []
     }
 
-    registerComponents () {
+    initComponents () {
+        // let timeElement = new Timer( document.querySelector('[data-timer]') )
+        // timeElement.onInit()
+
         for (let key in components) {
-            let ComponentConstructor = components[key]
+            var buildComponents = components[key]
+
             let elements = document.querySelectorAll(`[data-${key}]`)
 
-            for (let elem of elements) {
-                var instance = new ComponentConstructor(this, elem)
-                this._components.push(instance)
+            for (const elem of elements) {
 
+                let instance = new buildComponents(elem)
                 instance.onInit()
             }
         }
-        // window.ThemeComponents = this._components
-        // window.__Theme = this
-    }
-
-    getComponents () {
-        return this._components
     }
 }
 
