@@ -6,6 +6,10 @@ class Authorise {
 
    onInit () {
        console.log(`auth class class`)
+       /**
+        * Check if user has already authorised and hide/show
+        * app/auth based on results from db
+        */
 
        this._authBtn.addEventListener('click', e => {
            e.preventDefault()

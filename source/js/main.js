@@ -16,11 +16,10 @@ class App {
         // timeElement.onInit()
 
         for (let key in components) {
-            var buildComponents = components[key]
-
+            let buildComponents = components[key]
             let elements = document.querySelectorAll(`[data-${key}]`)
 
-            for (const elem of elements) {
+            for (let elem of elements) {
 
                 let instance = new buildComponents(elem)
                 instance.onInit()
