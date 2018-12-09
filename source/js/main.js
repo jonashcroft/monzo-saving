@@ -12,15 +12,11 @@ class App {
     }
 
     initComponents () {
-        // let timeElement = new Timer( document.querySelector('[data-timer]') )
-        // timeElement.onInit()
-
         for (let key in components) {
             let buildComponents = components[key]
             let elements = document.querySelectorAll(`[data-${key}]`)
 
             for (let elem of elements) {
-
                 let instance = new buildComponents(elem)
                 instance.onInit()
             }
