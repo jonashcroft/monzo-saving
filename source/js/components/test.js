@@ -8,10 +8,10 @@ class ClassName {
 
     onInit () {
         console.log('Main should be ready!')
-        console.dir(this._elem)
-        console.dir(config)
+        // console.dir(this._elem)
+        // console.dir(config)
 
-        console.log( formatCurrency(10000) )
+        // console.log( formatCurrency(10000) )
     }
 }
 
