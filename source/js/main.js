@@ -6,16 +6,6 @@ import firebase from 'firebase/app'
 import 'firebase/auth';
 import 'firebase/database';
 
-var fbConfig = {
-    apiKey: "AIzaSyBtPMqe1nAPsJw1zqLbwo4ZZYSbCFMjf1w",
-    authDomain: "monzo-app-181a0.firebaseapp.com",
-    databaseURL: "https://monzo-app-181a0.firebaseio.com",
-    projectId: "monzo-app-181a0",
-    storageBucket: "monzo-app-181a0.appspot.com",
-    messagingSenderId: "19214649606"
-}
-firebase.initializeApp(fbConfig)
-
 console.dir(firebase)
 
 // https://firebase.google.com/docs/auth/web/custom-auth
@@ -47,6 +37,17 @@ class App {
     }
 
     initComponents () {
+
+        /**
+         * If Access token exists and access
+         * token got - go straight to app,
+         * else authorise
+         */
+
+        if ( accessToken ) {
+
+        }
+
         for (let key in components) {
             let buildComponents = components[key]
             let elements = document.querySelectorAll(`[data-${key}]`)

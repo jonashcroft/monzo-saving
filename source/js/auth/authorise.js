@@ -13,6 +13,12 @@ class Authorise {
         * app/auth based on results from db
         */
 
+       let accessToken = new URLSearchParams(document.location.search).get('code')
+
+        if ( accessToken ) {
+           this._getAccessToken( accessToken );
+        }
+
         let clientId
         let clientSecret
 
@@ -34,11 +40,13 @@ class Authorise {
          * back with Access Code and parse from URL
          */
 
-         this._getAccessToken()
+        let authUrl = `https://auth.monzo.com/?client_id=${ config.clientId }&redirect_uri=${ config.redirectUrl }&response_type=code&state=${ Math.random().toString(23).substring(4) }`;
+
+        window.location.replace(authUrl);
 
     }
 
-    _getAccessToken () {
+    _getAccessToken ( accessToken ) {
         /**
          * Axios request to Monzo
          */
