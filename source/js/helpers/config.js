@@ -1,5 +1,4 @@
 const config = {
-    // Note: May/should be moving these to a database (Firebase)?
     'clientId'     : '*** CLIENT ID ***',
     'clientSecret' : '*** CLIENT SECRET ***',
 
