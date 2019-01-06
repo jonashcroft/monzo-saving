@@ -1,4 +1,4 @@
-import Authorise from './auth/authorise'
+import initAuth from './auth/authorise'
 import Test from './components/test'
 
 // const components = {
@@ -20,7 +20,7 @@ class App {
 
             getMonzoAccount()
         } else {
-            authorise()
+            initAuth()
         }
 
         /**
