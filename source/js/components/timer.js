@@ -1,27 +1,28 @@
-const INTERVAL = 1000;
+const INTERVAL = 1000
 
 class Timer {
     constructor(element) {
-        this.element = element;
+        this.element = element
         this.time = this.element.querySelector('[data-time-el]')
     }
 
     getTime() {
-        let date = new Date();
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
+        let date = new Date()
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
 
-        return hours + ':' + minutes;
+        return hours + ':' + minutes
     }
 
     onInit() {
         console.log(this.time)
+        console.log(`hey`)
 
-        this.time.textContent = this.getTime();
+        this.time.textContent = this.getTime()
 
         setInterval(() => {
-            this.time.textContent = this.getTime();
-        }, INTERVAL);
+            this.time.textContent = this.getTime()
+        }, INTERVAL)
     }
 }
 

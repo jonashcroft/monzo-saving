@@ -34,6 +34,28 @@ class App {
                 instance.onInit()
             }
         }
+
+        // let targetNode = document.getElementById('app')
+
+        // let config = { attributes: true, childList: true, subtree: true };
+
+        // let callback = (mutationsList, observer) => {
+        //     for(var mutation of mutationsList) {
+        //         console.group('mutation')
+        //         console.log(mutation)
+        //         console.groupEnd()
+
+        //         if (mutation.type == 'childList') {
+        //             console.log('A child node has been added or removed.')
+        //         }
+        //         else if (mutation.type == 'attributes') {
+        //             console.log('The ' + mutation.attributeName + ' attribute was modified.')
+        //         }
+        //     }
+        // }
+        // let observer = new MutationObserver(callback)
+
+        // observer.observe(targetNode, config)
     }
 }
 

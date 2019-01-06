@@ -1,4 +1,4 @@
-import config from './../helpers/config'
+import config from '../auth/config'
 import formatCurrency from './../helpers/currency'
 
 class ClassName {
@@ -10,7 +10,6 @@ class ClassName {
         console.log('Main should be ready!')
         // console.dir(this._elem)
         // console.dir(config)
-
         // console.log( formatCurrency(10000) )
     }
 }
