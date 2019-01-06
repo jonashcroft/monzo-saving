@@ -1,12 +1,10 @@
 import Authorise from './auth/authorise'
-import Timer from './components/timer'
 import Test from './components/test'
 
-const components = {
-    'authorise': Authorise,
-    'test': Test,
-    'timer': Timer
-}
+// const components = {
+    // 'authorise': Authorise,
+    // 'test': Test,
+// }
 
 class App {
     constructor () {
@@ -14,6 +12,16 @@ class App {
     }
 
     initComponents () {
+
+        let accessToken = localStorage.getItem('accessToken')
+
+        if ( typeof accessToken !== 'undefined' && accessToken !== null ) {
+            console.log(`we've got the access token`)
+
+            getMonzoAccount()
+        } else {
+            authorise()
+        }
 
         /**
          * If Access token exists and access
@@ -25,37 +33,15 @@ class App {
 
         // }
 
-        for (let key in components) {
-            let buildComponents = components[key]
-            let elements = document.querySelectorAll(`[data-${key}]`)
+        // for (let key in components) {
+        //     let buildComponents = components[key]
+        //     let elements = document.querySelectorAll(`[data-${key}]`)
 
-            for (let elem of elements) {
-                let instance = new buildComponents(elem)
-                instance.onInit()
-            }
-        }
-
-        // let targetNode = document.getElementById('app')
-
-        // let config = { attributes: true, childList: true, subtree: true };
-
-        // let callback = (mutationsList, observer) => {
-        //     for(var mutation of mutationsList) {
-        //         console.group('mutation')
-        //         console.log(mutation)
-        //         console.groupEnd()
-
-        //         if (mutation.type == 'childList') {
-        //             console.log('A child node has been added or removed.')
-        //         }
-        //         else if (mutation.type == 'attributes') {
-        //             console.log('The ' + mutation.attributeName + ' attribute was modified.')
-        //         }
+        //     for (let elem of elements) {
+        //         let instance = new buildComponents(elem)
+        //         instance.onInit()
         //     }
         // }
-        // let observer = new MutationObserver(callback)
-
-        // observer.observe(targetNode, config)
     }
 }
 

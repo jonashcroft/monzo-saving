@@ -3,26 +3,14 @@ import axios from 'axios'
 
 import getMonzoAccount from '../components/monzo'
 
-import getPayDay from '../components/getPayDay'
-
-class Authorise {
-    constructor (elem) {
-       this._elem = elem
-       this._authBtn = this._elem.querySelector('[data-auth-btn]')
-    }
-
+const authorise = () => {
+    /*-------------
+    JUST BROKE THIS, BUT
+    I NEED TO LEAVE SO,
+    RETURNING LATER
+    --------------*/
     onInit () {
         console.log(`auth class class`)
-
-        let accessToken = localStorage.getItem('accessToken')
-
-        if ( typeof accessToken !== 'undefined' && accessToken !== null ) {
-            console.log(`we've got the access token`)
-
-            new getPayDay().onInit()
-
-            getMonzoAccount()
-        }
 
         // https://itnext.io/how-to-create-an-application-using-the-monzo-bank-api-700e90e1f949
 
@@ -95,6 +83,8 @@ class Authorise {
             console.log(response);
         })
     }
+
+    onInit()
 }
 
-export default Authorise
+export default authorise
