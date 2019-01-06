@@ -1,4 +1,4 @@
 .DS_Store
 node_modules
 
-source/js/helpers/config.js
+source/js/auth/config.js
