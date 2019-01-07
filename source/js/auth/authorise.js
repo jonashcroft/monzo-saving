@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // https://itnext.io/how-to-create-an-application-using-the-monzo-bank-api-700e90e1f949
 
-const initAuth = () => {
+export const initAuth = () => {
 
     let authDiv = document.createElement('div');
         authDiv.setAttribute( 'data', 'authorise');
@@ -73,9 +73,41 @@ const getAccessToken = (accessCode) => {
 
         window.history.replaceState(null, null, window.location.pathname);
     })
-    .catch( (response) => {
-        console.log(response);
+    .catch( (error) => {
+        console.log(error)
     })
 }
 
-export default initAuth
+export const refreshAccessToken = () => {
+    console.log(`refresh token`)
+
+    let formData = new FormData()
+
+    formData.append('grant_type', 'refresh_token')
+    formData.append('client_id', config.clientId)
+    formData.append('client_secret', config.clientSecret)
+    formData.append('refresh_token', localStorage.getItem('refreshToken'))
+
+    let url = `${config.monzoUrl}/oauth2/token`
+
+    axios({
+        method: 'post',
+        url: url,
+        data: formData,
+        config: { headers: {'Content-Type': 'multipart/form-data' }}
+    })
+    .then( (response) => {
+        console.group('refresh')
+        console.log(response)
+        console.groupEnd()
+
+        localStorage.setItem('accessToken', response.data.access_token)
+        localStorage.setItem('refreshToken', response.data.refresh_token)
+
+        // location.reload()
+    })
+    .catch( (response) => {
+        console.log(response);
+    })
+
+}

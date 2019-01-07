@@ -1,6 +1,8 @@
 import config from '../auth/config'
 import axios from 'axios'
 
+import * as Auth from '../auth/authorise'
+
 export const getMonzoAccount = () => {
 
     let endpoint = `${config.monzoUrl}/accounts?account_type=uk_retail`
@@ -13,12 +15,23 @@ export const getMonzoAccount = () => {
     }).then(response => {
 
         // console.table(response.data)
+        console.group('Response')
+        console.log(response)
+        console.groupEnd()
         monzoAccountID = response.data.accounts[0].id
         localStorage.setItem('accountId', monzoAccountID )
 
     })
     .catch((error) => {
         console.log(`error: ${error}`)
+
+        console.group('error')
+        console.log(error.response)
+        console.groupEnd()
+
+        if (error.response.status == 401) {
+            Auth.refreshAccessToken()
+        }
     })
 
     return monzoAccountID
@@ -47,5 +60,4 @@ export const getTransactions = async () => {
     let data = await response
     return data
 
-    // return transactions
 }

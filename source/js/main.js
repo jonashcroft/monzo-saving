@@ -1,4 +1,5 @@
-import initAuth from './auth/authorise'
+// import initAuth from './auth/authorise'
+import * as Auth from './auth/authorise'
 import getPayDay from './components/getPayDay'
 
 // import getMonzoAccount from './components/monzo'
@@ -15,7 +16,7 @@ class App {
 
         } else {
 
-            initAuth()
+            Auth.initAuth()
 
         }
     }

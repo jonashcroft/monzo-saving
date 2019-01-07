@@ -30,7 +30,6 @@ const populatePayDays = (incoming) => {
     payDayElem.appendChild(list)
 
     for (let income of incoming) {
-
         // TODO: Dates are broken (January)
         let payAmount  = formatCurrency( income['amount'] ),
             readable   = new Date( income['created'] ),
@@ -48,7 +47,6 @@ const populatePayDays = (incoming) => {
                 <span>${payDate} "${income['notes']}"</span>
             </div></li>`
         )
-
     }
 
 }
