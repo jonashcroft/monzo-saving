@@ -8,7 +8,7 @@ const initAuth = () => {
     let authDiv = document.createElement('div');
         authDiv.setAttribute( 'data', 'authorise');
 
-    config.app.body.appendChild(authDiv);
+    config.app.appendChild(authDiv);
 
     authDiv.insertAdjacentHTML('beforeend',
         `<div class="authorise" data-authorise>
