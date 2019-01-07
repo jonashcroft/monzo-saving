@@ -1,16 +1,9 @@
 import initAuth from './auth/authorise'
-import Test from './components/test'
+import getPayDay from './components/getPayDay'
 
-// const components = {
-    // 'authorise': Authorise,
-    // 'test': Test,
-// }
+// import getMonzoAccount from './components/monzo'
 
 class App {
-    constructor () {
-        this._components = []
-    }
-
     initComponents () {
 
         let accessToken = localStorage.getItem('accessToken')
@@ -18,30 +11,13 @@ class App {
         if ( typeof accessToken !== 'undefined' && accessToken !== null ) {
             console.log(`we've got the access token`)
 
-            getMonzoAccount()
+            getPayDay()
+
         } else {
+
             initAuth()
+
         }
-
-        /**
-         * If Access token exists and access
-         * token got - go straight to app,
-         * else authorise
-         */
-
-        // if ( accessToken ) {
-
-        // }
-
-        // for (let key in components) {
-        //     let buildComponents = components[key]
-        //     let elements = document.querySelectorAll(`[data-${key}]`)
-
-        //     for (let elem of elements) {
-        //         let instance = new buildComponents(elem)
-        //         instance.onInit()
-        //     }
-        // }
     }
 }
 
