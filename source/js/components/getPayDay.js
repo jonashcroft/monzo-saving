@@ -10,7 +10,7 @@ const getPayDay = () => {
 
     Monzo.getTransactions()
     .then(response => {
-        const incoming = response.data.transactions.filter(transaction => transaction['amount'] > 500 && transaction['scheme'] == 'payport_faster_payments')
+        const incoming = response.data.transactions.filter(transaction => transaction['amount'] > 5000 && transaction['scheme'] == 'payport_faster_payments')
 
         populatePayDays(incoming)
 
@@ -24,6 +24,7 @@ const populatePayDays = (incoming) => {
 
     let payDayElem = document.createElement('div')
     payDayElem.setAttribute( 'data', 'paydays');
+    payDayElem.setAttribute( 'class', 'paydays');
     let list = document.createElement('ul')
 
     config.app.appendChild(payDayElem)
