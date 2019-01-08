@@ -10,7 +10,13 @@ const getPayDay = () => {
 
     Monzo.getTransactions()
     .then(response => {
-        const incoming = response.data.transactions.filter(transaction => transaction['amount'] > 5000 && transaction['scheme'] == 'payport_faster_payments')
+        let incoming = response.data.transactions.filter(transaction => transaction['amount'] > 5000 && transaction['scheme'] == 'payport_faster_payments')
+
+        let bills = response.data.transactions.filter(transaction => transaction['description'].includes('BILLS'))
+
+        console.group('BILLS')
+        console.log(bills)
+        console.groupEnd()
 
         populatePayDays(incoming)
 
@@ -34,7 +40,7 @@ const populatePayDays = (incoming) => {
         // TODO: Dates are broken (January)
         let payAmount  = formatCurrency( income['amount'] ),
             readable   = new Date( income['created'] ),
-            m          = readable.getMonth(), // returns 6
+            m          = readable.getMonth() + 1, // returns 6
             d          = readable.getDay(),  // returns 15
             y          = readable.getFullYear(),  // returns 2012
 

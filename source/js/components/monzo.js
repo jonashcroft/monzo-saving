@@ -15,9 +15,9 @@ export const getMonzoAccount = () => {
     }).then(response => {
 
         // console.table(response.data)
-        console.group('Response')
-        console.log(response)
-        console.groupEnd()
+        // console.group('Response')
+        // console.log(response)
+        // console.groupEnd()
         monzoAccountID = response.data.accounts[0].id
         localStorage.setItem('accountId', monzoAccountID )
 
