@@ -49,7 +49,22 @@ export const getTransactions = async () => {
         dateEnd.setMonth(dateEnd.getMonth()-1),
         dateEnd   = dateEnd.toISOString().split('.')[0]+'Z'
 
-    const endpoint = `${config.monzoUrl}/transactions?account_id=${localStorage.getItem('accountId')}&since=${dateEnd}&before=${dateStart}`
+    let endpoint = `${config.monzoUrl}/transactions?account_id=${localStorage.getItem('accountId')}&since=${dateEnd}&before=${dateStart}`
+
+    let response = await axios({
+        method: 'get',
+        url: endpoint,
+        headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`}
+    })
+
+    let data = await response
+    return data
+
+}
+
+export const getBalance = async () => {
+
+    let endpoint = `${config.monzoUrl}/balance?account_id=${sessionStorage.getItem('accountId')}`;
 
     let response = await axios({
         method: 'get',

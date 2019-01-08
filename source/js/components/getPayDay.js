@@ -16,10 +16,6 @@ const getPayDay = () => {
 
         let bills = response.data.transactions.filter(transaction => transaction['description'].includes('BILLS'))
 
-        console.group('BILLS')
-        console.log(bills)
-        console.groupEnd()
-
         populatePayDays(incoming)
 
     })
